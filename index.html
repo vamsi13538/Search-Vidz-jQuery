@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Vidz | Youtube</title>
+    <link rel="icon" href="https://img.icons8.com/?size=100&id=37325&format=png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://kit.fontawesome.com/7e99a9e738.js" crossorigin="anonymous"></script>
+</head>
+<body>
+       
+    <div class="MainBox">
+        <div id="HeaderBox">
+            <header>
+                <h1>Search <span>Vidz</span></h1>
+                <p>Search All Videos Here....</p>
+            </header>
+        </div>
+        <section id="SectionBox">
+            <form id="SearchForm">
+                <input type="search" id="query" name="SearchField" placeholder="Search from here...">
+                <i id="SearchButton" type="submit" class="fa-solid fa-magnifying-glass"></i>
+            </form>
+        </section>
+        <main>
+            <div class="results"></div>
+            <div id="buttons"></div>
+        </main>
+        <footer>
+            <h5>Copyright &copy; 2024, All Rights Reserved</h5>
+        </footer>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

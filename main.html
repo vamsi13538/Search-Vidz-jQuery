@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Vidz | Youtube</title>
+    <link rel="icon" href="https://img.icons8.com/?size=100&id=37325&format=png" type="image/x-icon">
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://kit.fontawesome.com/7e99a9e738.js" crossorigin="anonymous"></script>
+  <style>
+    body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    caret-color: transparent;
+    background-color: lightgrey;
+}
+
+.MainBox{
+    margin: 0.8rem 8rem;
+}
+
+#HeaderBox{
+    margin: 0 auto;
+    text-align: start;
+    line-height: 0.6;
+    padding: 0.8rem 1rem;
+    background-color: whitesmoke;
+}
+
+header h1 span{
+    color: orangered;
+}
+
+#SectionBox{
+    margin: 0 auto;
+    text-align: start;
+    padding: 1.6rem 1rem;
+    background-color: white;
+}
+
+#SearchForm{
+    width: 100%;
+    position: relative;
+}
+
+#query{
+    width: 30%;
+    height: 2.6rem;
+    border-radius: 0.8rem;
+    border-bottom: 3px solid green;
+    caret-color: crimson;
+    font-size: 1.2rem;
+    padding: 1.6rem 1rem;
+    caret-color: red;
+}
+
+#SearchButton{
+    position: absolute;
+    left: 26%;
+    top: 25%;
+    font-size: 1.8rem;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#SearchButton:hover{
+    opacity: 1;
+}
+
+
+footer{
+    margin: 0 auto;
+    text-align: center;
+    padding: 0.8rem 0.2rem;
+    background-color: whitesmoke;
+}
+
+footer h5{
+    font-size: 1.2rem;
+}
+
+.items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0.8rem 0rem;
+    height: auto;
+}
+
+.thumbnailBox{
+    width: 40%;
+    max-height: 13rem;
+    margin: 0.4rem 0rem;
+    border-radius: 4%;
+}
+
+.thumbnailBox img{
+    width: 100%;
+    height: 100%;
+    border-radius: 3%;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.8) ;
+}
+
+.contentBox{
+    width: 50%;
+    padding: 0rem 0.4rem;
+}
+
+.contentBox h3{
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.contentBox small{
+    font-size: 0.8rem;
+    color: steelblue;
+}
+
+.contentBox p{
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+#buttons{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pagingButton{
+    margin: 0.8rem 0.4rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    background-color: slateblue;
+    color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    opacity: 1;
+}
+
+.pagingButton:hover{
+    opacity: 0.9;
+}
+
+.videoLink{
+    text-decoration: none;
+    color: black;
+}
+
+.videoLink:hover{
+    text-decoration: underline;
+}
+
+/* Media Queries */
+@media (max-width: 990px){
+
+    #query{
+        margin: 0rem 0.4rem;
+        font-size: 1rem;
+    }
+
+    #SearchButton{
+        font-size: 1.6rem;
+        margin-top: 0.1rem;
+    }
+}
+
+@media (max-width: 768px){
+    #query{
+        height: 0.6rem;
+        margin: 0 0.8rem;
+        font-size: 0.6rem;
+        padding: 1rem 1rem;
+        border-radius: 0.6rem;
+        border-bottom: 3px solid green;
+    }
+
+    #SearchButton{
+        font-size: 1.1rem;
+        margin-top: 0rem;
+    }
+}
+
+@media (max-width: 430px){
+
+    body{
+        box-sizing: border-box;
+    }
+
+    .MainBox{
+        margin: 0rem 0rem;
+        width: 100vw;
+    }
+
+    #HeaderBox{
+        margin: 0rem 0rem;
+        padding: 0.8rem 0rem;
+        padding-left: 0.6rem;
+        background-color: whitesmoke;
+        width: 100%;
+    }
+    
+    header h1 span{
+        color: orangered;
+    }
+    
+    #SectionBox{
+        margin: 0rem 0rem;
+        padding: 0.8rem 0rem;
+        padding-left: 0.6rem;
+        background-color: white;
+        width: 100%;
+    }
+
+    footer{
+        margin: 0rem 0rem;
+        text-align: center;
+        padding: 0.8rem 0.2rem;
+        background-color: whitesmoke;
+    }
+
+    #query{
+        height: 0.6rem;
+        margin: 0rem 0rem 0rem 0.4rem;
+        font-size: 0.6rem;
+    }
+
+    #SearchButton{
+        font-size: 1.1rem;
+        margin-top: 0rem;
+    }
+    
+    .contentBox{
+        width: 50%;
+        padding: 0rem 0.4rem;
+        word-wrap: break-word;
+    }
+
+    header h1{
+        font-size: 1.8rem;
+    }
+
+    header p{
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 550px){
+    .MainBox{
+        margin: 0rem 0rem;
+        width: 100vw;
+    }
+
+    footer{
+        padding: 0.2rem 0rem;
+    }
+
+    .contentBox{
+        word-wrap: break-word;
+    }
+}
+
+  </style>
+</head>
+<body>
+       
+    <div class="MainBox">
+        <div id="HeaderBox">
+            <header>
+                <h1>Search <span>Vidz</span></h1>
+                <p>Search All Videos Here....</p>
+            </header>
+        </div>
+        <section id="SectionBox">
+            <form id="SearchForm">
+                <input type="search" id="query" name="SearchField" placeholder="Search from here...">
+                <i id="SearchButton" type="submit" class="fa-solid fa-magnifying-glass"></i>
+            </form>
+        </section>
+        <main>
+            <div class="results"></div>
+            <div id="buttons"></div>
+        </main>
+        <footer>
+            <h5>Copyright &copy; 2024, All Rights Reserved</h5>
+        </footer>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+    // Create all variables
+    const SearchField = $('#query');
+    const SearchButton = $('#SearchButton');
+    
+    // Sldiing right animation on focus
+    SearchField.on('focus', function(){
+        SearchField.animate({
+            width: '60%'
+        },400);
+        SearchButton.animate({
+            left: '56%'
+        },400);
+    })
+
+
+    // Sldiing left animation on blur
+    SearchField.on('blur', function(){
+        if(SearchField.val() == ''){
+            SearchField.animate({
+                width: '30%'
+            },400,function(){});
+            SearchButton.animate({
+                left: '26%'
+            },400, function(){});
+        }
+    })
+
+
+    SearchButton.on('click', search);
+
+    function search(){
+        // Sending GET request to access API
+        // Clear all results before searching
+        $('.results').html('');
+        $('.buttons').html('');
+
+        // Get form input
+        let SearchValue = SearchField.val();
+
+        // Run get request on API
+        $.get('https://www.googleapis.com/youtube/v3/search',{
+            part: 'snippet, id',
+            q: SearchValue,
+            type: 'video',
+            maxResults: 50,
+            key: 'AIzaSyDbQ5ZLVEGg76k8bsKg7DyaZq7YMkPqM2M'
+        }, function(data){
+             var nextPageToken = data.nextPageToken;
+             var prevPageToken = data.prevPageToken;
+
+             $.each(data.items, function(i, item){
+                var output = getOutput(item);
+                // Displaying results in HTML
+                $('.results').append(output);
+             })
+
+             // Displaying buttons in HTML
+             var buttons = getButtons(prevPageToken, nextPageToken, SearchValue);
+
+             $('#buttons').append(buttons);
+
+        });
+        
+    };
+
+    // Nextpage button
+    window.nextPage = function() {
+
+        // Storing data-token and data-query in variables
+        var token = $('#nextButton').data('token');
+        var query = $('#nextButton').data('query');
+
+        // Sending GET request to access API
+        // Clear all results before searching
+        $('.results').html('');
+        $('.buttons').html('');
+
+
+        // Run get request on API
+        $.get('https://www.googleapis.com/youtube/v3/search',{
+            part: 'snippet, id',
+            pageToken: token,
+            q: query,
+            type: 'video',
+            maxResults: 50,
+            key: 'AIzaSyDbQ5ZLVEGg76k8bsKg7DyaZq7YMkPqM2M'
+        }, function(data){
+             var nextPageToken = data.nextPageToken;
+             var prevPageToken = data.prevPageToken;
+
+             $.each(data.items, function(i, item){
+                var output = getOutput(item);
+                // Displaying results in HTML
+                $('.results').append(output);
+             })
+
+             // Displaying buttons in HTML
+             var buttons = getButtons(prevPageToken, nextPageToken, query);
+
+             $('#buttons').append(buttons);
+
+        });
+    }
+
+    // Previouspage button
+    window.prevPage = function() {
+
+        // Storing data-token and data-query in variables
+        var token = $('#prevButton').data('token');
+        var query = $('#prevButton').data('query');
+
+        // Sending GET request to access API
+        // Clear all results before searching
+        $('.results').html('');
+        $('.buttons').html('');
+
+
+        // Run get request on API
+        $.get('https://www.googleapis.com/youtube/v3/search',{
+            part: 'snippet, id',
+            pageToken: token,
+            q: query,
+            type: 'video',
+            maxResults: 50,
+            key: 'AIzaSyDbQ5ZLVEGg76k8bsKg7DyaZq7YMkPqM2M'
+        }, function(data){
+
+             var nextPageToken = data.nextPageToken;
+             var prevPageToken = data.prevPageToken;
+
+
+
+             $.each(data.items, function(i, item){
+                var output = getOutput(item);
+                // Displaying results in HTML
+                $('.results').append(output);
+             })
+
+             // Displaying buttons in HTML
+             var buttons = getButtons(prevPageToken, nextPageToken, query);
+
+             $('#buttons').append(buttons);
+
+        });
+    }
+
+    function getOutput(item){
+        // Store all data of items in variables
+        let SearchValue = SearchField.val();
+        var videoID = item.id.videoId;
+        var title = item.snippet.title;
+        var description = item.snippet.description;
+        var thumbnail = item.snippet.thumbnails.high.url;
+        var channelTitle = item.snippet.channelTitle;
+        var videoDate = item.snippet.publishedAt;
+        // Upload date converts date in years or months from current period
+        var uploadDate = moment(videoDate).fromNow();
+
+        var output = `
+        <div class="items">
+            <div class="thumbnailBox">
+                <a class="videoLink" target="_blank" href="https://www.youtube.com/embed/${videoID}"><img src="${thumbnail}" title="${SearchValue}" alt="No_Img"></a>
+                
+            </div>
+            <div class="contentBox">
+                <h3><a class="videoLink" target="_blank" href="https://www.youtube.com/embed/${videoID}">${title}</a></h3>
+                <small>By ${channelTitle}<span> on ${uploadDate}</span></small>
+                <p>${description}</p>
+            </div>
+        </div>
+        `;
+
+        return output;
+    };
+
+    function getButtons(prevPageToken, nextPageToken, SearchValue){
+
+        $('#nextButton').remove();
+        $('#prevButton').remove();
+
+        if(!prevPageToken){
+            var buttonOutput = `
+            <div class="buttonContainer">
+                <button id="nextButton" class="pagingButton" data-token="${nextPageToken}" data-query="${SearchValue}" onclick="nextPage()">Next Page</button>
+            </div>
+        `;
+        }else{
+            var buttonOutput = `
+            <div class="buttonContainer">
+                <button id="prevButton" class="pagingButton" data-token="${prevPageToken}" data-query="${SearchValue}" onclick="prevPage()">Prev Page</button>
+            </div>
+            <div class="buttonContainer">
+                    <button id="nextButton" class="pagingButton" data-token="${nextPageToken}" data-query="${SearchValue}" onclick="nextPage()">Next Page</button>
+            </div> 
+            `;
+        }
+
+        return buttonOutput;
+    };
+
+
+});
+    </script>
+</body>
+</html>
