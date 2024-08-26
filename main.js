@@ -44,7 +44,7 @@ $(document).ready(function(){
             q: SearchValue,
             type: 'video',
             maxResults: 50,
-            key: 'AIzaSyDbQ5ZLVEGg76k8bsKg7DyaZq7YMkPqM2M'
+            key: '---YOUR API KEY---'
         }, function(data){
              var nextPageToken = data.nextPageToken;
              var prevPageToken = data.prevPageToken;
